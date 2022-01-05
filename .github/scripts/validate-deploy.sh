@@ -51,6 +51,11 @@ else
   sleep 30
 fi
 
+sleep 2m 
+
+echo "kubectl get operator --all-namespaces"
+kubectl get operator --all-namespaces
+
 # DEPLOYMENT="${COMPONENT_NAME}-${BRANCH}"
 # count=0
 # until kubectl get deployment "${DEPLOYMENT}" -n "${NAMESPACE}" || [[ $count -eq 20 ]]; do
