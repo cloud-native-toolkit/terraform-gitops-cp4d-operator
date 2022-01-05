@@ -6,6 +6,10 @@ locals {
   ingress_url   = "https://${local.ingress_host}"
   service_url   = "http://${local.name}.${var.namespace}"
   values_content = {
+    operator_namespace   = "ibm-common-services"
+    cpd_platform_version = "4.0.2"
+    cpd_platform_channel = "v2.0"
+    cpd_namespace        = "cpd"
   }
   layer = "services"
   application_branch = "main"
