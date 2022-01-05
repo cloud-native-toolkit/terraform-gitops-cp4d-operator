@@ -55,6 +55,7 @@ sleep 2m
 
 echo "kubectl get operator --all-namespaces"
 kubectl get operator --all-namespaces
+kubectl get subscription --all-namespaces
 
 # DEPLOYMENT="${COMPONENT_NAME}-${BRANCH}"
 # count=0
