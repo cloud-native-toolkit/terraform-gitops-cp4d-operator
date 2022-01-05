@@ -1,0 +1,8 @@
+id: github.com/cloud-native-toolkit/terraform-gitops-cp4d-operator
+name: gitops-cp4d-operator
+type: gitops
+description: Module to populate a gitops repo with the resources to provision cp4d-operator
+tags:
+  - tools
+  - gitops
+versions: []
