@@ -53,25 +53,19 @@ fi
 
 sleep 10m 
 
-echo "kubectl get operator --all-namespaces"
-kubectl get operator --all-namespaces
-kubectl get subscription --all-namespaces
 
-# DEPLOYMENT="${COMPONENT_NAME}-${BRANCH}"
-# count=0
-# until kubectl get deployment "${DEPLOYMENT}" -n "${NAMESPACE}" || [[ $count -eq 20 ]]; do
-#   echo "Waiting for deployment/${DEPLOYMENT} in ${NAMESPACE}"
-#   count=$((count + 1))
-#   sleep 15
-# done
+count=0
+until kubectl get subscription "cpd-operator" -n "${NAMESPACE}" || [[ $count -eq 20 ]]; do
+  echo "Waiting for subscription/cpd-operator in ${NAMESPACE}"
+  count=$((count + 1))
+  sleep 15
+done
 
-# if [[ $count -eq 20 ]]; then
-#   echo "Timed out waiting for deployment/${DEPLOYMENT} in ${NAMESPACE}"
-#   kubectl get all -n "${NAMESPACE}"
-#   exit 1
-# fi
-
-# kubectl rollout status "deployment/${DEPLOYMENT}" -n "${NAMESPACE}" || exit 1
+if [[ $count -eq 20 ]]; then
+  echo "Timed out waiting for subscription/cpd-operator in ${NAMESPACE}"
+  kubectl get all -n "${NAMESPACE}"
+  exit 1
+fi
 
 cd ..
 rm -rf .testrepo
