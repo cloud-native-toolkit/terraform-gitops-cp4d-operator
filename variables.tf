@@ -65,6 +65,7 @@ variable "git_credentials" {
 variable "namespace" {
   type        = string
   description = "The namespace where the application should be deployed"
+  default     = "ibm-common-services"
 }
 
 variable "cluster_ingress_hostname" {

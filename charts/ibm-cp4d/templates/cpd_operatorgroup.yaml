@@ -3,7 +3,7 @@ apiVersion: operators.coreos.com/v1alpha2
 kind: OperatorGroup
 metadata:
   name: operatorgroup
-  namespace: {{ .Values.operator_namespace }}
+  namespace: {{ .Values.cp4d.operator_namespace }}
 spec:
   targetNamespaces:
-    - {{ .Values.operator_namespace }}
+    - {{ .Values.cp4d.operator_namespace }}
