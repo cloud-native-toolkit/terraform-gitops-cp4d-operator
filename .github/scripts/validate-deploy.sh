@@ -51,7 +51,6 @@ else
   sleep 30
 fi
 
-sleep 10m 
 
 
 count=0
