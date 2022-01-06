@@ -7,7 +7,7 @@ locals {
   service_url   = "http://${local.name}.${var.namespace}"
   values_content = {
     cp4d = {
-      operator_namespace   = "ibm-common-services"
+      operator_namespace   = var.namespace
       cpd_platform_version = "4.0.2"
       cpd_platform_channel = "v2.0"
       cpd_namespace        = "cpd"
