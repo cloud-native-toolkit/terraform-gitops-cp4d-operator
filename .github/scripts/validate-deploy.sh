@@ -51,7 +51,7 @@ else
   sleep 30
 fi
 
-sleep 2m 
+sleep 10m 
 
 echo "kubectl get operator --all-namespaces"
 kubectl get operator --all-namespaces
