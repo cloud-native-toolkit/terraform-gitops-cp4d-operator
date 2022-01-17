@@ -85,7 +85,8 @@ fi
 #future: check that csv exists
 # kubectl get csv 
 
-
+#sleep for 10 mins while i poke around and make sure things are working
+sleep 10m
 
 cd ..
 rm -rf .testrepo
