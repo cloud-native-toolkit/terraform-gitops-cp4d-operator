@@ -82,11 +82,11 @@ if [[ $count -eq 20 ]]; then
 fi
 
 
-#future: check that csv exists
+#future: check that csv exists or some other way to ensure everything installed and is available
 # kubectl get csv 
 
 #sleep for 10 mins while i poke around and make sure things are working
-sleep 10m
+#sleep 10m
 
 cd ..
 rm -rf .testrepo
