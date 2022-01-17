@@ -1,5 +1,5 @@
 locals {
-  name          = "my-module"
+  name          = "cp4d-operator"
   bin_dir       = module.setup_clis.bin_dir
   yaml_dir      = "${path.cwd}/.tmp/${local.name}/chart/${local.name}"
   ingress_host  = "${local.name}-${var.namespace}.${var.cluster_ingress_hostname}"

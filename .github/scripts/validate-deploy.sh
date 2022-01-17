@@ -10,7 +10,7 @@ SERVER_NAME="default"
 TYPE="base"
 LAYER="2-services"
 
-COMPONENT_NAME="my-module"
+COMPONENT_NAME="cp4d-operator"
 
 mkdir -p .testrepo
 
@@ -54,17 +54,39 @@ fi
 
 
 count=0
-until kubectl get subscription "cpd-operator" -n "${NAMESPACE}" || [[ $count -eq 20 ]]; do
-  echo "Waiting for subscription/cpd-operator in ${NAMESPACE}"
+until kubectl get subscription "cpd-operator" -n "openshift-operators" || [[ $count -eq 20 ]]; do
+  echo "Waiting for subscription/cpd-operator in openshift-operators"
   count=$((count + 1))
   sleep 15
 done
 
 if [[ $count -eq 20 ]]; then
-  echo "Timed out waiting for subscription/cpd-operator in ${NAMESPACE}"
-  kubectl get all -n "${NAMESPACE}"
+  echo "Timed out waiting for subscription/cpd-operator in openshift-operators"
+  kubectl get all -n "openshift-operators"
   exit 1
 fi
+
+
+
+count=0
+until kubectl get CatalogSource "ibm-cpd-ccs-operator-catalog" -n "openshift-marketplace" || [[ $count -eq 20 ]]; do
+  echo "Waiting for CatalogSource/cpd-operator in openshift-marketplace"
+  count=$((count + 1))
+  sleep 15
+done
+
+if [[ $count -eq 20 ]]; then
+  echo "Timed out waiting for CatalogSource/ibm-cpd-ccs-operator-catalog in openshift-marketplace"
+  kubectl get all -n "openshift-marketplace"
+  exit 1
+fi
+
+
+#future: check that csv exists or some other way to ensure everything installed and is available
+# kubectl get csv 
+
+#sleep for 10 mins while i poke around and make sure things are working
+#sleep 10m
 
 cd ..
 rm -rf .testrepo
