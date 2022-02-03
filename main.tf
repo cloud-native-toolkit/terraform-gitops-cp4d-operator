@@ -2,9 +2,6 @@ locals {
   name          = "cp4d-operator"
   bin_dir       = module.setup_clis.bin_dir
   yaml_dir      = "${path.cwd}/.tmp/${local.name}/chart/${local.name}"
-  ingress_host  = "${local.name}-${var.namespace}.${var.cluster_ingress_hostname}"
-  ingress_url   = "https://${local.ingress_host}"
-  service_url   = "http://${local.name}.${var.namespace}"
   values_content = {
     cp4d = {
       operator_namespace   = var.namespace
