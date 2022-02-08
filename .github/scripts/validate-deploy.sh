@@ -54,15 +54,15 @@ fi
 
 
 count=0
-until kubectl get subscription "cpd-operator" -n "openshift-operators" || [[ $count -eq 20 ]]; do
-  echo "Waiting for subscription/cpd-operator in openshift-operators"
+until kubectl get subscription "cpd-operator" -n $NAMESPACE || [[ $count -eq 20 ]]; do
+  echo "Waiting for subscription/cpd-operator in $NAMESPACE"
   count=$((count + 1))
   sleep 15
 done
 
 if [[ $count -eq 20 ]]; then
-  echo "Timed out waiting for subscription/cpd-operator in openshift-operators"
-  kubectl get all -n "openshift-operators"
+  echo "Timed out waiting for subscription/cpd-operator in $NAMESPACE"
+  kubectl get all -n $NAMESPACE
   exit 1
 fi
 
