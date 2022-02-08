@@ -5,5 +5,5 @@ module "cp4d_operator" {
   git_credentials = module.gitops.git_credentials
   server_name = module.gitops.server_name
   namespace = module.gitops_namespace.name
-  kubeseal_cert = module.argocd-bootstrap.sealed_secrets_cert
+  kubeseal_cert = module.gitops-bootstrap.sealed_secrets_cert
 }

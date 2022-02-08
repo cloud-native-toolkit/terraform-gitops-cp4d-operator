@@ -10,6 +10,15 @@ variable "ibmcloud_api_key" {
   description = "The api key for IBM Cloud access"
 }
 
+variable "server_url" {
+  type        = string
+}
+
+variable "bootstrap_prefix" {
+  type = string
+  default = ""
+}
+
 variable "region" {
   type        = string
   description = "Region for VLANs defined in private_vlan_number and public_vlan_number."
@@ -76,4 +85,8 @@ variable "gitops_namespace" {
 }
 
 variable "git_username" {
+}
+
+variable "kubeseal_namespace" {
+  default = "sealed-secrets"
 }
