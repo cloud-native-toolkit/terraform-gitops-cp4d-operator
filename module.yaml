@@ -18,6 +18,15 @@ versions:
         refs:
           - source: github.com/cloud-native-toolkit/terraform-gitops-namespace.git
             version: '>= 1.0.0'
+     # - id: gitops_ibm_catalogs (Bala: - name does not exist in catalog)
+      - id: gitops-cp-catalogs
+        refs:
+          - source: github.com/cloud-native-toolkit/terraform-gitops-cp-catalogs.git
+            version: ">= 1.0.0"
+      - id: ibm-common-service
+        refs:
+          - source: github.com/cloud-native-toolkit/terraform-gitops-cp-foundational-services.git
+            version: ">= 1.0.0"
     variables:
       - name: gitops_config
         moduleRef:
