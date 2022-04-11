@@ -20,6 +20,8 @@
 #           eventType: released
 #         env:
 #           GITHUB_TOKEN: ${{ secrets.TOKEN }}
+
+# Added new notify since old repo no longer exist
 name: Notify
 
 on:
