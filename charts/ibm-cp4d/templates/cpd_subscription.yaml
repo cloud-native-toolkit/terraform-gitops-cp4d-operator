@@ -4,6 +4,8 @@ kind: Subscription
 metadata:
   name: cpd-operator
   namespace: {{ .Values.cp4d.operator_namespace }}
+  annotations:
+    argocd.argoproj.io/sync-wave: {{ .Values.syncWave | default "-10" | quote }} 
 spec:
   channel: {{ .Values.cp4d.cpd_platform_channel }}
   installPlanApproval: Automatic
