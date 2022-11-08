@@ -1,6 +1,5 @@
 locals {
   name          = "cp4d-operator"
-  bin_dir       = module.setup_clis.bin_dir
   yaml_dir      = "${path.cwd}/.tmp/${local.name}/chart/${local.name}"
   values_content = {
     cp4d = {
@@ -11,6 +10,7 @@ locals {
   layer = "services"
   type = "base"
   application_branch = "main"
+  namespace = var.namespace
   layer_config = var.gitops_config[local.layer]
 }
 
